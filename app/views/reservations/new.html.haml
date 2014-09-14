@@ -1,0 +1,13 @@
+= stylesheet_link_tag 'new_reservation'
+= form_for @page[:reservation] do |f|
+  %h2 Reservation Name:
+  = f.text_field :name
+  %h2 Reservation Description:
+  = f.text_area  :description, :size => "150x450"
+  %h2 Start Time
+  = f.text_field :start_datetime, class: 'start-input'
+  %h2 End Time
+  = f.text_field :end_datetime, class: 'end-input'
+  %br
+  = f.submit 'Create Reservation', class: 'rs-btn rs-btn-primary'
+= javascript_include_tag 'new_reservation'
