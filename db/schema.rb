@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914181022) do
+ActiveRecord::Schema.define(version: 20140914182845) do
+
+  create_table "console_server_interfaces", force: true do |t|
+    t.integer  "console_server_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "console_servers", force: true do |t|
     t.string   "name"
