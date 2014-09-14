@@ -11,7 +11,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914163432) do
+ActiveRecord::Schema.define(version: 20140914181022) do
+
+  create_table "console_servers", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "device_interfaces", force: true do |t|
+    t.string   "name"
+    t.integer  "mrv_interface_id"
+    t.integer  "device_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "devices", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "model"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mrv_interfaces", force: true do |t|
+    t.string   "name"
+    t.integer  "mrv_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mrvs", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "ip_address"
+    t.string   "username"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reservations", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "topology_id"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "topologies", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
