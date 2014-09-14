@@ -1,0 +1,2 @@
+class TopologiesController < ApplicationController
+end

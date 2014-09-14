@@ -43,4 +43,4 @@ gem 'haml-rails'
 gem 'jquery-turbolinks'
 gem 'passenger'
 gem 'devise_ldap_authenticatable'
-
+gem 'upmin-admin'

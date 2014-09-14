@@ -1,8 +1,13 @@
 class UserHomeController < ApplicationController
   before_filter :authenticate_user!
   def index
-    user = User.find_by_id(current_user.id)
     reservations = Reservation.all
-    @page = {:user => user, :reservations => reservations}
+    @page = {:reservations => reservations}
+  end
+
+  def topologies
+    topologies = Topology.all
+    @page ={:topologies => topologies}
+    render 'user_home/topologies/index'
   end
 end

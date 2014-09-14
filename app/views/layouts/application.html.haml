@@ -27,8 +27,10 @@
           .rs-nav-brand
             %a{href: user_home_path}
           %ul.rs-nav
-            %li.rs-nav-item{:class => (('active') if request.path.include?('user_home'))}
+            %li.rs-nav-item{:class => (('active') if request.path == '/user_home')}
               %a.rs-nav-link{href: '/user_home'} Reservations
+            %li.rs-nav-item{:class => (('active') if request.path.include?('user_home/topologies'))}
+              %a.rs-nav-link{href: '/user_home/topologies'} Topologies
       .rs-body
         .rs-container
           .rs-main
