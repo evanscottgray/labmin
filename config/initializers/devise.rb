@@ -3,18 +3,18 @@
 Devise.setup do |config|
   # ==> LDAP Configuration 
   # config.ldap_logger = true
-  # config.ldap_create_user = false
-  # config.ldap_update_password = true
+  config.ldap_create_user = true
+  config.ldap_update_password = false
   # config.ldap_config = "#{Rails.root}/config/ldap.yml"
   # config.ldap_check_group_membership = false
   # config.ldap_check_attributes = false
   # config.ldap_use_admin_to_bind = false
   # config.ldap_ad_group_check = false
-  
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '261c142af6e60ebf99be0c4cfca0cfd15e6d6501b0a65abbbe7b44bb8743ac6af501d384cc9845b2ab2b576cc2e6a47a8116f72d829b49dd517903d649f4e39f'
+  config.secret_key = 'f823bfd0bdda838b506ca3aa7df1f7f97aa0e95bb9ce7ad14af0f2988a449775ed0de456fe4009e5cb6b34512a3eccc8da9a46421e5e43df24a10ea44fb37ce5'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -39,7 +39,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [ :email ]
+  config.authentication_keys = [ :login ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -107,7 +107,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'cd228e9e493faa5b7e32c881b58a21a62b46694c9422b25ad1cdbb4ea667609c837d3c6d99ad251266b7eae92be95769174dc55590dab1b789ba53e865474cc7'
+  # config.pepper = '7fb433c3c9dd030ec8b6cced0498af367b396aded22ae3fe4766167627a4c1410c07c05e3179d4d20ba844d5db3e98e66ee0f3fb841b6165ac79c685f512a3f3'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -212,7 +212,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
