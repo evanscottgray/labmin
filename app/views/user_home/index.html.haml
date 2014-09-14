@@ -1,1 +1,18 @@
 .rs-content.rs-panel
+  .rs-inner
+    - if @page[:reservations].any?
+      = render('reservation_table')
+    - else
+      = render('reservation_table_none_yet')
+:javascript
+  $(document).ready(function () {
+      (function ($) {
+          $('.reservation-search').keyup(function () {
+              var rex = new RegExp($(this).val(), 'i');
+              $('.reservation-table tr').hide();
+              $('.reservation-table tr').filter(function () {
+                  return rex.test($(this).text());
+              }).show();
+          })
+      }(jQuery));
+  });

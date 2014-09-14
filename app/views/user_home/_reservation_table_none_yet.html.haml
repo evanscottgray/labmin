@@ -1,0 +1,27 @@
+.rs-page-title Reservations
+.rs-btn-group
+  %a= link_to 'New Reservation', new_reservation_path, class: "rs-btn rs-btn-primary"
+  %input{type: 'text', class: 'rs-input-large rs-pull-right', placeholder: 'Search Reservations'}
+%table.rs-list-table
+  %thead
+    %tr
+      %th.rs-table-cog
+      %th.rs-table-sort
+        %span.rs-table-sort-text Name
+      %th.rs-table-sort
+        %span.rs-table-sort-text Topology
+      %th.rs-table-sort
+        %span.rs-table-sort-text User
+      %th.rs-table-sort
+        %span.rs-table-sort-text Start Time
+      %th.rs-table-sort
+        %span.rs-table-sort-text End Time
+  %tbody
+.rs-table-overlay
+  .rs-table-overlay-content
+    .rs-table-overlay-title There are no Reservations yet. :c
+    .rs-table-overlay-subtitle
+      Make one
+      %a{href: new_reservation_path}
+        Now!
+        %i.rs-icon-external
