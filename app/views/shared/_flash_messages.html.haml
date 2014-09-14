@@ -1,0 +1,5 @@
+.rs-container
+  - flash.each do |k,v|
+    .alert.alert-dismissable{class: "alert-#{k}", style: 'opacity: 0;'}
+      = v
+      %button.close.rs-pull-right{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} ×
