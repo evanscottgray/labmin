@@ -45,3 +45,5 @@ log/*
 # Don't want that db
 db/developme*
 
+# aint about that testing lyfe
+test/*
