@@ -1,0 +1,32 @@
+authorizations: &AUTHORIZATIONS
+  group_base: ou=Users,o=Rackspace
+  required_groups:
+development:
+  host: <%= ENV['APP_LDAP_HOST'] %>
+  port: 636
+  attribute: cn
+  base: ou=Users,o=rackspace
+  admin_user: <%= ENV['APP_LDAP_USER'] %>
+  admin_password:  <%= ENV['APP_LDAP_PASSWORD'] %>
+  ssl: true
+  <<: *AUTHORIZATIONS
+
+test:
+  host: <%= ENV['APP_LDAP_HOST'] %>
+  port: 636
+  attribute: cn
+  base: ou=Users,o=rackspace
+  admin_user: <%= ENV['APP_LDAP_USER'] %>
+  admin_password: <%= ENV['APP_LDAP_PASSWORD'] %>
+  ssl: true
+  <<: *AUTHORIZATIONS
+
+production:
+  host: <%= ENV['APP_LDAP_HOST'] %>
+  port: 636
+  attribute: cn
+  base: ou=Users,o=rackspace
+  admin_user: <%= ENV['APP_LDAP_USER'] %>
+  admin_password: <%= ENV['APP_LDAP_PASSWORD'] %>
+  ssl: true
+  <<: *AUTHORIZATIONS
