@@ -1,0 +1,36 @@
+!!!
+%html.racker-auth
+  %head
+    %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %link{href: "https://eafdbc63c97ce6bec9ef-b0a668e5876bef6fe25684caf71db405.ssl.cf1.rackcdn.com/v1-latest/canon.min.css", rel: "stylesheet", type: "text/css"}/
+    %link{href: "https://0ffddf3700fca63d7eee-f2158e9965ca1e4dc7433839c207ae5c.ssl.cf1.rackcdn.com/login-0ad7d2ef7693bbb4f45d70286c7c62011e3b5ece.css", media: "screen", rel: "stylesheet", type: "text/css"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %title Labmin Login
+  %body
+    #content.center-login-form
+      #warning-messages
+      #login_wrapper
+        #rackspace_logo_container
+        .login-block#auth_login_block
+          %span.welcome_message
+            Labmin Racker Login
+            = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'login-form'}) do |f|
+              .rs-control-group
+                %label SSO Username
+                = f.text_field :login, :autofocus => true, class: 'rs-input-large'
+              .rs-control-group
+                %label SSO Password
+                = f.password_field :password, class: 'rs-input-large'
+              .login-action= f.submit(class: 'button save rs-btn rs-btn-login', value: 'Sign in')
+      .links
+    .rs-container{style: 'padding-top: 39%;'}
+      = render 'devise/shared/flash_messages'if !flash.empty?
+%script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+%script{src: "https://eafdbc63c97ce6bec9ef-b0a668e5876bef6fe25684caf71db405.ssl.cf1.rackcdn.com/v1-latest/canon.min.js", type: "application/javascript"}
+:javascript
+  $(document).ready(function () {
+      $('.alert').each(function(i, element) {
+          $(element).delay(500).animate({ opacity: 1 }, 700)
+      });
+  });

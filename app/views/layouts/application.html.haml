@@ -1,0 +1,48 @@
+!!!
+%html
+  %head
+    %title Labmin
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = favicon_link_tag '/favicon.ico'
+    = csrf_meta_tags
+    %link{href: "https://eafdbc63c97ce6bec9ef-b0a668e5876bef6fe25684caf71db405.ssl.cf1.rackcdn.com/v1-latest//canon.min.css", rel: "stylesheet", type: "text/css"}
+  %body
+    .rs-wrapper
+      .rs-nav-utility
+        .rs-container
+          %ul.rs-nav
+            %li.rs-nav-item.active
+              %a.rs-nav-link{href: root_path} Labmin
+          %ul.rs-nav.rs-pull-right
+            %li.rs-nav-item.rs-dropdown.rs-utility-dropdown
+              %a.rs-nav-link.rs-dropdown-toggle
+                = current_user.ldap_name
+                %i.rs-caret
+              %ul.rs-dropdown-menu
+                %li.rs-dropdown-item
+                  = link_to "Logout", destroy_user_session_path, method: :delete, class: 'rs-dropdown-link'
+      .rs-nav-primary
+        .rs-container
+          .rs-nav-brand
+            %a{href: user_home_path}
+          %ul.rs-nav
+            %li.rs-nav-item{:class => (('active') if request.path.include?('user_home'))}
+              %a.rs-nav-link{href: '/user_home'} Reservations
+      .rs-body
+        .rs-container
+          .rs-main
+            = yield
+        = render 'shared/flash_messages'if !flash.empty?
+      / Push to make sure that the rs-panel won't crawl down onto the footer.
+      .rs-push
+    .rs-push
+      .rs-nav-footer
+        .rs-container
+          %ul.rs-nav
+            %li.rs-nav-item Labmin - Lovingly Crafted by Andrew Edwards and Evan Gray
+            %li.rs-nav-item © 2014 Rackspace, US
+            %li.rs-nav-item
+              %a.rs-nav-link{href: 'http://www.rackspace.com/information/legal/websiteterms', target: 'blank'} Terms & Privacy
+%script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+%script{src: "https://eafdbc63c97ce6bec9ef-b0a668e5876bef6fe25684caf71db405.ssl.cf1.rackcdn.com/v1-latest/canon.min.js", type: "application/javascript"}
