@@ -47,3 +47,7 @@ db/developme*
 
 # aint about that testing lyfe
 test/*
+
+# wow no ldap.yml
+config/ldap.yml
+
