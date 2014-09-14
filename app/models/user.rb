@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :reservations
+
   before_create :get_ldap_name
   before_create :get_ldap_email
   before_create :get_ldap_phone
