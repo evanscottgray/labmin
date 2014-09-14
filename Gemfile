@@ -38,3 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'devise'
+gem 'haml'
+gem 'haml-rails'
+gem 'jquery-turbolinks'
+gem 'passenger'
+gem 'devise_ldap_authenticatable'
+
