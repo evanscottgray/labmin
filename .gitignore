@@ -49,5 +49,5 @@ db/developme*
 test/*
 
 # wow no ldap.yml
-config/ldap.yml
+config/ldap.yml*
 
