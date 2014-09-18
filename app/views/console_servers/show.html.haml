@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b String:
+  = @console_server.string
+%p
+  %b Text:
+  = @console_server.text
+%p
+  %b Integer:
+  = @console_server.integer
+%p
+  %b Integer:
+  = @console_server.integer
+
+= link_to 'Edit', edit_console_server_path(@console_server)
+\|
+= link_to 'Back', console_servers_path

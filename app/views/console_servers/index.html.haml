@@ -1,0 +1,25 @@
+%h1 Listing console_servers
+
+%table
+  %tr
+    %th String
+    %th Text
+    %th Integer
+    %th Integer
+    %th
+    %th
+    %th
+
+  - @console_servers.each do |console_server|
+    %tr
+      %td= console_server.string
+      %td= console_server.text
+      %td= console_server.integer
+      %td= console_server.integer
+      %td= link_to 'Show', console_server
+      %td= link_to 'Edit', edit_console_server_path(console_server)
+      %td= link_to 'Destroy', console_server, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Console server', new_console_server_path

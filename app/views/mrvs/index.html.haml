@@ -1,0 +1,21 @@
+%h1 Listing mrvs
+
+%table
+  %tr
+    %th String
+    %th Text
+    %th
+    %th
+    %th
+
+  - @mrvs.each do |mrv|
+    %tr
+      %td= mrv.string
+      %td= mrv.text
+      %td= link_to 'Show', mrv
+      %td= link_to 'Edit', edit_mrv_path(mrv)
+      %td= link_to 'Destroy', mrv, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Mrv', new_mrv_path

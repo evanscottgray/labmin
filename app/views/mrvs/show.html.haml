@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b String:
+  = @mrv.string
+%p
+  %b Text:
+  = @mrv.text
+
+= link_to 'Edit', edit_mrv_path(@mrv)
+\|
+= link_to 'Back', mrvs_path

@@ -1,0 +1,2 @@
+module DeviceConsoleInterfacesHelper
+end

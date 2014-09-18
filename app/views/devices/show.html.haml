@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b String:
+  = @device.string
+%p
+  %b Text:
+  = @device.text
+%p
+  %b Text:
+  = @device.text
+
+= link_to 'Edit', edit_device_path(@device)
+\|
+= link_to 'Back', devices_path
