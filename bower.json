@@ -1,0 +1,17 @@
+{
+  "name": "labmin",
+  "version": "0.0.1",
+  "homepage": "https://github.com/evanscottgray/labmin",
+  "authors": [
+    "Andrew Edwards <aedwards@meecrob.us>",
+    "Evan Scott Gray"
+  ],
+  "license": "Apache",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
