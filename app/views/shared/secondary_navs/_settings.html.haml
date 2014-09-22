@@ -1,0 +1,11 @@
+.rs-nav-secondary
+  .rs-container
+    %ul.rs-nav
+      %li.rs-nav-item{:class => (('active') if request.path == devices_path)}
+        %a.rs-nav-link{href: devices_path} Devices
+      %li.rs-nav-item{:class => (('active') if request.path == console_servers_path)}
+        %a.rs-nav-link{href: console_servers_path} Console Servers
+      %li.rs-nav-item{:class => (('active') if request.path == mrvs_path)}
+        %a.rs-nav-link{href: mrvs_path} MRVs
+      %li.rs-nav-item{:class => (('active') if request.path == credentials_path)}
+        %a.rs-nav-link{href: credentials_path} Credentials
