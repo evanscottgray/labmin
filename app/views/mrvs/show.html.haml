@@ -1,11 +1,14 @@
 %p#notice= notice
 
 %p
-  %b String:
-  = @mrv.string
+  %b Name:
+  = @mrv.name
 %p
-  %b Text:
-  = @mrv.text
+  %b Description:
+  = @mrv.description
+%p
+  %b Credential ID:
+  = @mrv.credential_id
 
 = link_to 'Edit', edit_mrv_path(@mrv)
 \|

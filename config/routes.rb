@@ -6,16 +6,11 @@ Rails.application.routes.draw do
   root "reservations#index"
 
   resources :console_servers
-
+  resources :reservations
+  resources :topologies
+  resources :devices
   resources :mrvs
-
   resources :credentials
 
-  resources :device_console_interfaces
-
-  resources :reservations
-
-  resources :topologies
-
-  resources :devices
+  get 'user_home' => 'user_home#index'
 end

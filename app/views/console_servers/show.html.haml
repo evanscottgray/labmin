@@ -1,17 +1,20 @@
 %p#notice= notice
 
 %p
-  %b String:
-  = @console_server.string
+  %b Name:
+  = @console_server.name
 %p
-  %b Text:
-  = @console_server.text
+  %b Description:
+  = @console_server.description
 %p
-  %b Integer:
-  = @console_server.integer
+  %b Telnet Port Base:
+  = @console_server.telnet_port_base
 %p
-  %b Integer:
-  = @console_server.integer
+  %b SSH Port Base:
+  = @console_server.ssh_port_base
+%p
+  %b Credential ID:
+  = @console_server.credential_id
 
 = link_to 'Edit', edit_console_server_path(@console_server)
 \|

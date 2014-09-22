@@ -2,20 +2,20 @@
 
 %table
   %tr
-    %th String
-    %th Text
-    %th Integer
-    %th Integer
+    %th Name
+    %th IP Address 
+    %th Telnet Port Base
+    %th SSH Port Base
     %th
     %th
     %th
 
   - @console_servers.each do |console_server|
     %tr
-      %td= console_server.string
-      %td= console_server.text
-      %td= console_server.integer
-      %td= console_server.integer
+      %td= console_server.name
+      %td  IP Address 
+      %td= console_server.telnet_port_base
+      %td= console_server.ssh_port_base
       %td= link_to 'Show', console_server
       %td= link_to 'Edit', edit_console_server_path(console_server)
       %td= link_to 'Destroy', console_server, :method => :delete, :data => { :confirm => 'Are you sure?' }

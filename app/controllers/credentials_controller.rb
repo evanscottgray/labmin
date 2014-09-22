@@ -69,6 +69,6 @@ class CredentialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def credential_params
-      params.require(:credential).permit(:string, :text, :string, :string, :string)
+      params.require(:credential).permit(:name, :description, :username, :password, :enable_password)
     end
 end

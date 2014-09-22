@@ -1,14 +1,17 @@
 %p#notice= notice
 
 %p
-  %b String:
-  = @device.string
+  %b Name:
+  = @device.name
 %p
-  %b Text:
-  = @device.text
+  %b Description:
+  = @device.description
 %p
-  %b Text:
-  = @device.text
+  %b Base Configuration:
+  = @device.base_configuration
+%p
+  %b Credential ID
+  = @device.credential_id
 
 = link_to 'Edit', edit_device_path(@device)
 \|
