@@ -11,6 +11,4 @@ Rails.application.routes.draw do
   resources :devices
   resources :mrvs
   resources :credentials
-
-  get 'user_home' => 'user_home#index'
 end
