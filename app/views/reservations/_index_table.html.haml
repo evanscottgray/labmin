@@ -1,0 +1,34 @@
+.rs-page-title Reservations
+.rs-btn-group
+  %a= link_to 'New Reservation', new_reservation_path, class: 'rs-btn rs-btn-primary'
+  %input{type: 'search', class: 'rs-input-large rs-pull-right reservation-search', placeholder: 'Search Reservations'}
+%table.rs-list-table
+  %thead
+    %tr
+      %th.rs-table-cog
+      %th.rs-table-sort
+        %span.rs-table-sort-text Name
+      %th.rs-table-sort
+        %span.rs-table-sort-text Topology
+      %th.rs-table-sort
+        %span.rs-table-sort-text User
+      %th.rs-table-sort
+        %span.rs-table-sort-text Start Time
+      %th.rs-table-sort
+        %span.rs-table-sort-text End Time
+  %tbody.reservation-table
+    - @page[:reservations].each do |reservation|
+      %tr
+        %td.rs-table-cog
+          .rs-dropdown
+            .rs-cog.rs-dropdown-toggle
+            %ul.rs-dropdown-menu.hidden
+              %li
+                %span.rs-dropdown-category Do Things
+              %li
+                %a= link_to 'Destroy', reservation_path(reservation.id), method: :delete
+        %td= link_to reservation.name, reservation_path(reservation.id)
+        %td= reservation.topology
+        %td= reservation.user.ldap_name
+        %td= reservation.start_datetime
+        %td= reservation.end_datetime
