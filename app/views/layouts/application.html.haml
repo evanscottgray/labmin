@@ -31,7 +31,7 @@
       .rs-nav-primary
         .rs-container
           .rs-nav-brand
-            %a{href: user_home_path}
+            %a{href: root_path}
           %ul.rs-nav
             %li.rs-nav-item{:class => (('active') if request.path.include?(reservations_path))}
               %a.rs-nav-link{href: reservations_path} Reservations
