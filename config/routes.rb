@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   mount Upmin::Engine => '/upmin'
 
   devise_for :users
