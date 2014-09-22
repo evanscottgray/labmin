@@ -69,6 +69,6 @@ class MrvsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mrv_params
-      params.require(:mrv).permit(:string, :text)
+      params.require(:mrv).permit(:name, :description, :credential_id, :ipv4_address_attributes => [:address])
     end
 end

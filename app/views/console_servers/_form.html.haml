@@ -7,16 +7,23 @@
           %li= msg
 
   .field
-    = f.label :string
-    = f.text_field :string
+    = f.label :name
+    = f.text_field :name
   .field
-    = f.label :text
-    = f.text_field :text
+    = f.label :description
+    = f.text_area :description
+  -#.field
+    = f.label :ipv4_address
+    = f.text_field :ipv4_address
   .field
-    = f.label :integer
-    = f.text_field :integer
+    = f.label :telnet_port_base
+    = f.number_field :telnet_port_base
   .field
-    = f.label :integer
-    = f.text_field :integer
+    = f.label :ssh_port_base
+    = f.number_field :ssh_port_base
+  .field
+    = f.label :credential_id
+    = collection_select(:console_server, :credential_id, Credential.all, :id, :name)
+
   .actions
     = f.submit 'Save'

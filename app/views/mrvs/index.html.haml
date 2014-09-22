@@ -1,17 +1,17 @@
-%h1 Listing mrvs
+%h1 Listing MRVs
 
 %table
   %tr
-    %th String
-    %th Text
+    %th Name
+    %th IP Address
     %th
     %th
     %th
 
   - @mrvs.each do |mrv|
     %tr
-      %td= mrv.string
-      %td= mrv.text
+      %td= mrv.name
+      %td ip address
       %td= link_to 'Show', mrv
       %td= link_to 'Edit', edit_mrv_path(mrv)
       %td= link_to 'Destroy', mrv, :method => :delete, :data => { :confirm => 'Are you sure?' }

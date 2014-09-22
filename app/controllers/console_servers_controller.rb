@@ -69,6 +69,6 @@ class ConsoleServersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def console_server_params
-      params.require(:console_server).permit(:string, :text, :integer, :integer)
+      params.require(:console_server).permit(:name, :description, :telnet_port_base, :ssh_port_base, :credential_id, :ipv4_address_attributes => [:address])
     end
 end

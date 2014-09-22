@@ -4,8 +4,8 @@ class ConsoleServer < ActiveRecord::Base
 
   belongs_to :credential
 
-  validates :telnet_base_port, presence: true
-  validates :ssh_base_port, presence: true
+  validates :telnet_port_base, presence: true
+  validates :ssh_port_base, presence: true
 
   validates :name, uniqueness: true
 
