@@ -12,6 +12,5 @@ Rails.application.routes.draw do
   resources :mrvs
   resources :credentials
 
-  mount Upmin::Engine => '/upmin'
   get 'user_home' => 'user_home#index'
 end
