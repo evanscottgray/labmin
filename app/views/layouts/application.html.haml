@@ -31,12 +31,12 @@
       .rs-nav-primary
         .rs-container
           .rs-nav-brand
-            %a{href: user_home_path}
+            %a{href: root_path}
           %ul.rs-nav
-            %li.rs-nav-item{:class => (('active') if request.path == '/user_home')}
-              %a.rs-nav-link{href: '/user_home'} Reservations
-            %li.rs-nav-item{:class => (('active') if request.path.include?('user_home/topologies'))}
-              %a.rs-nav-link{href: '/user_home/topologies'} Topologies
+            %li.rs-nav-item{:class => (('active') if request.path.include?(reservations_path))}
+              %a.rs-nav-link{href: reservations_path} Reservations
+            %li.rs-nav-item{:class => (('active') if request.path.include?(topologies_path))}
+              %a.rs-nav-link{href: topologies_path} Topologies
             %li.rs-nav-item{:class => (('active') if request.path.include?('console_servers') || request.path.include?('mrvs') || request.path.include?('credentials') || request.path.include?('devices'))}
               %a.rs-nav-link{href: devices_path } Settings
       = render 'shared/secondary_nav'

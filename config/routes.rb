@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  mount Upmin::Engine => '/upmin'
+
+  devise_for :users
+
+  root "reservations#index"
 
   resources :console_servers
 
@@ -8,15 +13,9 @@ Rails.application.routes.draw do
 
   resources :device_console_interfaces
 
-  mount Upmin::Engine => '/upmin'
-
-  root "home#index"
-  devise_for :users
-
-  get 'user_home' => 'user_home#index'
-  get 'user_home/topologies' => 'user_home#topologies'
-
   resources :reservations
+
   resources :topologies
+
   resources :devices
 end
