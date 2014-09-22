@@ -14,6 +14,12 @@
           %ul.rs-nav
             %li.rs-nav-item.active
               %a.rs-nav-link{href: root_path} Labmin
+            %li.rs-nav-item
+              %a.rs-nav-link{href: 'https://pht.vdojo.rackspace.net'} LabTest
+            %li.rs-nav-item
+              %a.rs-nav-link{href: 'https://vdojo.rackspace.net'} vDojo
+            %li.rs-nav-item
+              %a.rs-nav-link{href: 'https://people.vdojo.rackspace.net'} People
           %ul.rs-nav.rs-pull-right
             %li.rs-nav-item.rs-dropdown.rs-utility-dropdown
               %a.rs-nav-link.rs-dropdown-toggle
@@ -31,6 +37,9 @@
               %a.rs-nav-link{href: '/user_home'} Reservations
             %li.rs-nav-item{:class => (('active') if request.path.include?('user_home/topologies'))}
               %a.rs-nav-link{href: '/user_home/topologies'} Topologies
+            %li.rs-nav-item{:class => (('active') if request.path.include?('console_servers') || request.path.include?('mrvs') || request.path.include?('credentials') || request.path.include?('devices'))}
+              %a.rs-nav-link{href: devices_path } Settings
+      = render 'shared/secondary_nav'
       .rs-body
         .rs-container
           .rs-main
