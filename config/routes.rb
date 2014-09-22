@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  mount Upmin::Engine => '/upmin'
+
+  devise_for :users
+
+  root "reservations#index"
 
   resources :console_servers
   resources :reservations
@@ -8,11 +13,5 @@ Rails.application.routes.draw do
   resources :credentials
 
   mount Upmin::Engine => '/upmin'
-
-  root "home#index"
-  devise_for :users
-
   get 'user_home' => 'user_home#index'
-  #get 'user_home/topologies' => 'user_home#topologies'
-
 end
