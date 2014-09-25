@@ -1,13 +1,69 @@
 = stylesheet_link_tag 'new_reservation'
-= form_for @page[:reservation] do |f|
-  %h2 Reservation Name:
-  = f.text_field :name
-  %h2 Reservation Description:
-  = f.text_area  :description, :size => "150x450"
-  %h2 Start Time
-  = f.text_field :start_datetime, class: 'start-input'
-  %h2 End Time
-  = f.text_field :end_datetime, class: 'end-input'
-  %br
-  = f.submit 'Create Reservation', class: 'rs-btn rs-btn-primary'
+// override bootstrap tables yo
+%link{href: "https://eafdbc63c97ce6bec9ef-b0a668e5876bef6fe25684caf71db405.ssl.cf1.rackcdn.com/v1-latest//canon.min.css", rel: "stylesheet", type: "text/css"}
+.rs-content.rs-panel
+  = form_for(@page[:reservation], :html => {:class => 'rs-form-create'}) do |f|
+    .rs-detail-section
+      .rs-detail-section-header
+        %h2.rs-page-title
+          Create a Lab Reservation
+        .rs-detail-section-title
+          Reservation Details
+      .rs-detail-section-body
+        .rs-control-group
+          .rs-control-label Reservation Name
+          .rs-controls
+            = f.text_field :name, :class => 'rs-input-large'
+        .rs-control-group
+          .rs-control-label Reservation Description
+          .rs-controls
+            = f.text_field :description, :class => 'rs-input-large'
+        .rs-control-group
+          .rs-control-label Start Time
+          .rs-controls
+            = f.text_field :start_datetime, class: 'start-input'
+        .rs-control-group
+          .rs-control-label End Time
+          .rs-controls
+            = f.text_field :end_datetime, class: 'end-input'
+    .rs-detail-section
+      .rs-detail-section-header
+        .rs-detail-section-title
+          Select a Topology
+      .rs-detail-section-body
+        .rs-btn-group
+          %input{type: 'text', class: 'rs-input-large rs-pull-right topology-search', placeholder: 'Search Topologies'}
+        .rs-embedded-list-table-wrapper.rs-embedded-large
+          %table.rs-list-table.rs-embedded-list-table
+            %thead
+              %tr
+                %th.rs-table-radio
+                %th
+                  %a.rs-table-sort
+                    %span.rs-table-sort-text Name
+                %th.rs-table-sort
+                  %span.rs-table-sort-text Description
+            %tbody.phtt-table
+              - @page[:topologies].each do |topology|
+                %tr
+                  %td.rs-table-radio
+                    %input{type: 'radio', name: 'topology_id', value: topology.id}
+                  %td= link_to topology.name, topologies_path(topology.id)
+                  %td= topology.description
+    .rs-detail-section
+      .rs-detail-section-header.rs-btn-group
+        = f.submit 'Create Reservation', class: 'rs-btn rs-btn-primary'
+        %a.rs-btn.rs-btn-link= link_to 'Cancel', reservations_path
+:javascript
+  $(document).ready(function () {
+      (function ($) {
+          $('.topology-search').keyup(function () {
+              var rex = new RegExp($(this).val(), 'i');
+              $('.phtt-table tr').hide();
+              $('.phtt-table tr').filter(function () {
+                  return rex.test($(this).text());
+              }).show();
+          })
+      }(jQuery));
+  });
 = javascript_include_tag 'new_reservation'
