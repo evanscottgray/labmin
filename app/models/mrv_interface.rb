@@ -12,7 +12,7 @@ class MrvInterface < ActiveRecord::Base
 
   validates :name, uniqueness: {scope: :mrv_id}
 
-  #The UI should allow the user to sellect the MRV port from the perspective of the device instead.
+  #The UI should allow the user to select the MRV port from the perspective of the device instead.
   #accepts_nested_attributes_for :device_interface
   
   accepts_nested_attributes_for :mrv_mappings, :allow_destroy => true
