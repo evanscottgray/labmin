@@ -26,9 +26,11 @@
               %li
                 %span.rs-dropdown-category Do Things
               %li
+                %a= link_to 'Edit', edit_reservation_path(reservation.id)
+              %li
                 %a= link_to 'Destroy', reservation_path(reservation.id), method: :delete
         %td= link_to reservation.name, reservation_path(reservation.id)
-        %td= reservation.topology
+        %td= link_to reservation.topology.name, topology_url(reservation.topology.id)
         %td= reservation.user.ldap_name
         %td= reservation.start_datetime
         %td= reservation.end_datetime

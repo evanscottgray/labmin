@@ -6,7 +6,8 @@ class ReservationsController < ApplicationController
 
   def new
     user = User.find_by_id(current_user.id)
+    topologies = Topology.all
     reservation = user.reservations.build
-    @page = {:reservation => reservation, :user => user}
+    @page = {:reservation => reservation, :user => user, :topologies => topologies}
   end
 end
